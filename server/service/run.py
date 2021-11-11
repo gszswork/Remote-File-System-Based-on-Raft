@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 #server = couchdb.Server('http://admin:passw0rd@13.211.162.245:5984/')
-server = couchdb.Server('http://admin:1234@18.117.80.212:5984/')
+server = couchdb.Server('http://admin:1234@18.119.17.134:5984/')
 db = server['da']
 # Cannot connect to server, database 'da'
 
