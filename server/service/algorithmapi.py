@@ -20,7 +20,7 @@ def request_respond(logtime, interface, method, filepath=None):
     addr_list.remove(local_addr)
     addr = (get_host_ip(), 10001)
     data = {'type': 'client_append_entries',
-        'logtime': logtime,
+            'logtime': logtime,
             'interface': interface,
             'method': method}
     if filepath is not None:

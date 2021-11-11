@@ -9,8 +9,8 @@ from node import Node
 if __name__ == "__main__":
     config = {
     'id' : '1',
-    'addr': ('localhost', 101),
-    'peers': ['18.223.255.142', '18.117.80.212']
+    'addr': ('18.119.17.134', 101),
+    'peers': [('18.223.255.142', 102), ('18.117.80.212', 103)]
     }
 
     node1 = Node(config)
