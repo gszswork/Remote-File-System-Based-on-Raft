@@ -16,7 +16,7 @@ def request_respond(logtime, interface, method, filepath=None):
     #request_respond server给algorithm 发 client request, algorithm执行成功会返回True
     #否则False
     local_addr = get_host_ip()
-    addr_list = ['139.180.172.244','139.180.174.101','207.148.81.85']
+    addr_list = ['18.119.17.134', '18.223.255.142', '18.117.80.212']
     addr_list.remove(local_addr)
     addr = (get_host_ip(), 10001)
     data = {'type': 'client_append_entries',
@@ -46,8 +46,8 @@ def request_respond(logtime, interface, method, filepath=None):
             res = send_and_get(each_addr, interface, method)
             '''
         return True
-else:
-    return False
+    else:
+        return False
 
 # requset who is leader
 def leader_request():

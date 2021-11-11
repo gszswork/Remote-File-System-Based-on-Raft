@@ -8,7 +8,7 @@ import random
 import logging
 import requests
 
-from .log import Log
+from log import Log
 
 # logging这一行设置logging.info也可以输出到控制台
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')

@@ -8,9 +8,10 @@ UPLOAD_FOLDER = os.path.join('static', 'uploads')
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-server = couchdb.Server('http://admin:passw0rd@13.211.162.245:5984/')
+#server = couchdb.Server('http://admin:passw0rd@13.211.162.245:5984/')
+server = couchdb.Server('http://admin:1234@18.117.80.212:5984/')
 db = server['da']
-
+# Cannot connect to server, database 'da'
 
 targetpath = os.path.join('static', 'log.txt')
 logpath = os.path.join(os.getcwd(), targetpath)
@@ -334,5 +335,5 @@ def share_files(targetusername, filename, token):
 
 
 if __name__ == '__main__':
-    app.run(host = '0.0.0.0', port = 80)
+    app.run(host='0.0.0.0', port=80)
 
