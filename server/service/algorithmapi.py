@@ -52,7 +52,7 @@ def request_respond(logtime, interface, method, filepath=None):
 # requset who is leader
 def leader_request():
     #返回当前leader的IP地址和端口号,保存在一个list中.eg: ['119.162.11.22',10001]
-    addr = (get_host_ip(), 10002)
+    addr = (get_host_ip(), 10001)
     data = {'type': 'request_leader'}
     '''sendTo algorithm'''
     data = json.dumps(data).encode('utf-8')
