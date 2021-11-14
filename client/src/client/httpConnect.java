@@ -22,6 +22,7 @@ public class httpConnect {
 	private static String token;
 	private JSONParser parser = new JSONParser();
 	private String[] ipList= {"18.117.80.212","18.119.17.134","18.223.255.142"};
+	private String port = "801";
 //{"115.146.94.191",  "115.146.93.126","139.180.172.244"};
 
     public httpConnect() {
@@ -31,7 +32,7 @@ public class httpConnect {
     	System.out.println("SHUZHI: "+ url);
     	try {
     		String uri="leader";
-    		url="http://"+url+":801"+"/"+uri;
+    		url="http://"+url+':'+port+"/"+uri;
     		System.out.println(url);
     		
     		HttpGet httpGet = new HttpGet(url);
@@ -59,7 +60,7 @@ public class httpConnect {
     		String uri="users/"+username+"/"+password;
 //    		url="http://"+url+"/"+uri;
     		System.out.println("http://"+url+"/"+uri);
-    		HttpGet httpGet=new HttpGet("http://"+url+"/"+uri); //login
+    		HttpGet httpGet=new HttpGet("http://"+url+':'+port+"/"+uri); //login
     		response = httpClient.execute(httpGet);
     		String res = EntityUtils.toString(response.getEntity());
     		System.out.println("login "+ res);
@@ -74,7 +75,7 @@ public class httpConnect {
                 
             } else if (code==404){
                 //user does not exist, register
-            	HttpPost httpPost = new HttpPost("http://"+url+"/"+uri);
+            	HttpPost httpPost = new HttpPost("http://"+url+':'+port+"/"+uri);
             	CloseableHttpResponse response2 = httpClient.execute(httpPost);
             	String res2 = EntityUtils.toString(response2.getEntity());
         		System.out.println("register "+res2);
@@ -105,7 +106,7 @@ public class httpConnect {
             	return "error1";
             }
     	}catch (Exception e) {
-    		System.out.println("login exception");
+    		System.out.println("login exception"+ e);
     		//e.printStackTrace();
     	}
     	return "error2";
@@ -114,8 +115,8 @@ public class httpConnect {
     	try {
     		//data=new Vector<Vector>();
     		String uri="uploads/"+token;
-    		System.out.println("initiate data "+"http://"+url+"/"+uri);
-    		HttpGet httpGet = new HttpGet("http://"+url+"/"+uri);
+    		System.out.println("initiate data "+"http://"+url+':'+port+"/"+uri);
+    		HttpGet httpGet = new HttpGet("http://"+url+':'+port+"/"+uri);
     		response = httpClient.execute(httpGet);
     		String res = EntityUtils.toString(response.getEntity());
 			//JSONParser parser = new JSONParser();
@@ -149,9 +150,9 @@ public class httpConnect {
     	try {
     		String uri="uploads/"+token;
 //    		url="http://"+url+"/"+uri;
-    		System.out.println("http://"+url+"/"+uri);
+    		System.out.println("http://"+url+':'+port+"/"+uri);
     		
-    		HttpPost httpPost = new HttpPost("http://"+url+"/"+uri);
+    		HttpPost httpPost = new HttpPost("http://"+url+':'+port+"/"+uri);
     		FileInputStream fis = new FileInputStream(file);
     		MultipartEntityBuilder multipartEntityBuilder = MultipartEntityBuilder.create();  
     		multipartEntityBuilder.addBinaryBody("file",file);
@@ -195,9 +196,9 @@ public class httpConnect {
     public InputStream download(String file, String url) {
     	try {
     		String uri="uploads/"+file+"/"+token;
-    		System.out.println("http://"+url+"/"+uri);
+    		System.out.println("http://"+url+':'+port+"/"+uri);
     		
-    		HttpGet httpGet = new HttpGet("http://"+url+"/"+uri);
+    		HttpGet httpGet = new HttpGet("http://"+url+':'+port+"/"+uri);
     		 
     		
     		response = httpClient.execute(httpGet);
@@ -216,9 +217,9 @@ public class httpConnect {
     public String delete(String file, String url) {
     	try {
     		String uri="uploads/"+file+"/"+token;
-    		System.out.println("http://"+url+"/"+uri);
+    		System.out.println("http://"+url+':'+port+"/"+uri);
     		
-    		HttpDelete httpDelete = new HttpDelete("http://"+url+"/"+uri);
+    		HttpDelete httpDelete = new HttpDelete("http://"+url+':'+port+"/"+uri);
     		 
     		
     		response = httpClient.execute(httpDelete);
@@ -254,9 +255,9 @@ public class httpConnect {
     	try {
     		String uri="uploads/"+oldFile+"/"+newFile+"/"+token;
 //    		url="http://"+url+"/"+uri;
-    		System.out.println("http://"+url+"/"+uri);
+    		System.out.println("http://"+url+':'+port+"/"+uri);
     		
-    		HttpPut httpPut = new HttpPut("http://"+url+"/"+uri);
+    		HttpPut httpPut = new HttpPut("http://"+url+':'+port+"/"+uri);
     		 
     		
     		response = httpClient.execute(httpPut);
@@ -292,9 +293,9 @@ public class httpConnect {
     	try {
     		String uri="sharedfiles/"+targetUsername+"/"+filename+"/"+token;
     		///////
-    		System.out.println("http://"+url+"/"+uri);
+    		System.out.println("http://"+url+':'+port+"/"+uri);
     		
-    		HttpPost httpPost = new HttpPost("http://"+url+"/"+uri);
+    		HttpPost httpPost = new HttpPost("http://"+url+':'+port+"/"+uri);
     		 
     		
     		response = httpClient.execute(httpPost);
@@ -330,9 +331,9 @@ public class httpConnect {
     	try {
     		String uri="sharedfiles/"+targetUsername+"/"+filename+"/"+token;
 //    		url="http://"+url+"/"+uri;
-    		System.out.println("http://"+url+"/"+uri);
+    		System.out.println("http://"+url+':'+port+"/"+uri);
     		
-    		HttpGet httpGet = new HttpGet("http://"+url+"/"+uri);
+    		HttpGet httpGet = new HttpGet("http://"+url+':'+port+"/"+uri);
     		 
     		
     		response = httpClient.execute(httpGet);
@@ -365,9 +366,9 @@ public class httpConnect {
     public String declineShare(String targetUsername, String filename, String url) {
     	try {
     		String uri="sharedfiles/"+targetUsername+"/"+filename+"/"+token;
-    		System.out.println("http://"+url+"/"+uri);
+    		System.out.println("http://"+url+':'+port+"/"+uri);
     		
-    		HttpDelete httpDelete = new HttpDelete("http://"+url+"/"+uri);
+    		HttpDelete httpDelete = new HttpDelete("http://"+url+':'+port+"/"+uri);
     		 
     		
     		response = httpClient.execute(httpDelete);
@@ -402,9 +403,9 @@ public class httpConnect {
     	try {
     		String uri="sharedfiles/"+token;
 //    		url="http://"+url+"/"+uri;
-    		System.out.println("http://"+url+"/"+uri);
+    		System.out.println("http://"+url+':'+port+"/"+uri);
     		
-    		HttpGet httpGet = new HttpGet("http://"+url+"/"+uri);
+    		HttpGet httpGet = new HttpGet("http://"+url+':'+port+"/"+uri);
     		 
     		
     		response = httpClient.execute(httpGet);
