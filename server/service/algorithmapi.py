@@ -64,7 +64,7 @@ def leader_request():
         #return {'ip': 'None'}
         return None
     res_data = json.loads(res_data)
-    return res_data['ip'][0]
+    return res_data['ip']
 
 
 # send_and_get http request to other 2 servers
