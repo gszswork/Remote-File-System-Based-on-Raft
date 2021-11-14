@@ -70,11 +70,11 @@ class Node(object):
 
         # cs is used to send ,cs is only used in 'send(self,msg,addr)' function
         self.cs = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        lead_req_addr = (self.addr[0], 10002)
-        self.lead_req_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.lead_req_socket.bind(lead_req_addr)
+        #lead_req_addr = (self.addr[0], 10002)
+        #self.lead_req_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        #self.lead_req_socket.bind(lead_req_addr)
 
-        self.lead_res_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        #self.lead_res_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
     def load(self):
         # 记载保存到本地的结果，如果没有（第一次运行服务器）就创建一个
@@ -277,6 +277,10 @@ class Node(object):
         if data['type'] == 'client_append_entries':
             return
 
+        if data['type'] == 'request_leader':
+            res_data = {'ip': self.peers[self.leader_id]}
+            self.send(res_data, self.client_addr)
+        
         if data['term'] > self.current_term:
             logging.info('all: 1. bigger term')
             logging.info('     2. become follower')
