@@ -4,7 +4,7 @@ This is an API document.
 
 ## Details
 
-The API is available online. Use it by sending your request to **http://api.boyang.website/{URI}**
+The API is available online. Use it by sending your request to **http://18.119.17.134/{URI}**
 
 All interface are tested. You could test them [online](https://reqbin.com/) or using [Postman](https://www.postman.com/) (or using curl in command line).
 
@@ -12,7 +12,7 @@ Details are given below.
 
 1. **/**
     ```
-    URL: http://api.boyang.website/
+    URL: http://18.119.17.134/
     Method: GET
     Expected Return: {"code": 200, "result": "hi there"}
     ```
@@ -22,12 +22,12 @@ Details are given below.
 
     This interface is to allow a user to register or login.
     ```
-    URL: http://api.boyang.website/users/<name>/<password>
+    URL: http://18.119.17.134/users/<name>/<password>
     Method: GET, POST
     ```
     Use POST to register. For instance:
     ```
-    curl -X POST http://api.boyang.website/users/test/testpassword
+    curl -X POST http://18.119.17.134/users/test/testpassword
     ```
     This code is to register a user "test" with password "testpassword".
 
@@ -42,7 +42,7 @@ Details are given below.
 
     Use GET to login.
     ```
-    curl -X GET http://api.boyang.website/users/test/testpassword
+    curl -X GET http://18.119.17.134/users/test/testpassword
     ```
 
     Expected Return:
@@ -65,11 +65,11 @@ Details are given below.
     This interface is to upload a file or get the list of existing files.
 
     ```
-    URL: http://api.boyang.website/uploads/<token>
+    URL: http://18.119.17.134/uploads/<token>
     Method: GET, POST
     ```
 
-    Use POST to upload a file to the server. There is a [demo](http://api.boyang.website/static/index.html) and here is an example [code](./static/example.java).
+    Use POST to upload a file to the server. There is a [demo](http://18.119.17.134/static/index.html) and here is an example [code](./static/example.java).
 
     Expected Return:
     ```
@@ -78,7 +78,7 @@ Details are given below.
 
     Use GET to obtain the list of existing files and files information.
     ```
-    curl -X GET http://api.boyang.website/uploads/7b873e9eeb11ced251401d1ed683ae3c
+    curl -X GET http://18.119.17.134/uploads/7b873e9eeb11ced251401d1ed683ae3c
     ```
 
     Expected Return:
@@ -91,14 +91,14 @@ Details are given below.
     This interface is to download or delete a file from the server.
 
     ```
-    URL: http://api.boyang.website/uploads/<filename>/<token>
+    URL: http://18.119.17.134/uploads/<filename>/<token>
     Method: GET, DELETE
     ```
 
     Use GET to download a file.
 
     ```
-    curl -X GET http://api.boyang.website/uploads/screenshot.png/7b873e9eeb11ced251401d1ed683ae3c
+    curl -X GET http://18.119.17.134/uploads/screenshot.png/7b873e9eeb11ced251401d1ed683ae3c
     ```
 
     Expected Return:
@@ -113,7 +113,7 @@ Details are given below.
 
     Use DELETE to delete a file.
     ```
-    curl -X DELETE http://api.boyang.website/uploads/example.java/7b873e9eeb11ced251401d1ed683ae3c
+    curl -X DELETE http://18.119.17.134/uploads/example.java/7b873e9eeb11ced251401d1ed683ae3c
     ```
 
     Expected Return:
@@ -131,14 +131,14 @@ Details are given below.
     This interface is to change a file's name.
 
     ```
-    URL: http://api.boyang.website/uploads/<oldfilename>/<newfilename>/<token>
+    URL: http://18.119.17.134/uploads/<oldfilename>/<newfilename>/<token>
     Method: PUT
     ```
 
     Use PUT to change filename.
 
     ```
-    curl -X PUT http://api.boyang.website/uploads/screenshot.png/screenshot1.png/7b873e9eeb11ced251401d1ed683ae3c
+    curl -X PUT http://18.119.17.134/uploads/screenshot.png/screenshot1.png/7b873e9eeb11ced251401d1ed683ae3c
     ```
 
     Expected Return:
@@ -155,14 +155,14 @@ Details are given below.
     This interface is to obtain the list of shared files which are shared by other users.
 
     ```
-    URL: http://api.boyang.website/sharedfiles/<token>
+    URL: http://18.119.17.134/sharedfiles/<token>
     Method: GET
     ```
 
     Use GET to obtain the list.
 
     ```
-    curl -X GET http://api.boyang.website/sharedfiles/02938a072732bc44550c7639516414ed
+    curl -X GET http://18.119.17.134/sharedfiles/02938a072732bc44550c7639516414ed
     ```
 
     Expected Return:
@@ -175,14 +175,14 @@ Details are given below.
     This interface is to accept, decline or create a sharing request.
 
     ```
-    URL: http://api.boyang.website/sharedfiles/<targetusername>/<filename>/<token>
+    URL: http://18.119.17.134/sharedfiles/<targetusername>/<filename>/<token>
     Method: POST
     ```
 
     Use POST to share a file with another user.
 
     ```
-    curl -X POST http://api.boyang.website/sharedfiles/atest/screenshot1.png/7b873e9eeb11ced251401d1ed683ae3c
+    curl -X POST http://18.119.17.134/sharedfiles/atest/screenshot1.png/7b873e9eeb11ced251401d1ed683ae3c
     ```
 
     Expected Return:
@@ -198,7 +198,7 @@ Details are given below.
     Use GET to accept a sharing request.
 
     ```
-    curl -X GET http://api.boyang.website/sharedfiles/test/screenshot1.png/02938a072732bc44550c7639516414ed
+    curl -X GET http://18.119.17.134/sharedfiles/test/screenshot1.png/02938a072732bc44550c7639516414ed
     ```
     Expected Return:
     ```
@@ -212,7 +212,7 @@ Details are given below.
     Use DELETE to decline a sharing request.
 
     ```
-    curl -X DELETE http://api.boyang.website/sharedfiles/test/screenshot1.png/02938a072732bc44550c7639516414ed
+    curl -X DELETE http://18.119.17.134/sharedfiles/test/screenshot1.png/02938a072732bc44550c7639516414ed
     ```
     Expected Return:
     ```
