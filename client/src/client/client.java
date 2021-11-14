@@ -82,7 +82,7 @@ public class client {
 				System.exit(0);
 			}
 			leaderIP=connect.getLeader();
-			System.out.println("leaderIP"+leaderIP);
+			System.out.println("leaderIP: "+leaderIP);
 			String result=connect.login(username, password, leaderIP);
 			
 			System.out.println("login "+result);

@@ -21,16 +21,17 @@ public class httpConnect {
 	//private static String url="http://api.boyang.website/";
 	private static String token;
 	private JSONParser parser = new JSONParser();
-	private String[] ipList= {"207.148.81.85","139.180.174.101","139.180.172.244"};
+	private String[] ipList= {"18.117.80.212","18.119.17.134","18.223.255.142"};
 //{"115.146.94.191",  "115.146.93.126","139.180.172.244"};
 
     public httpConnect() {
     	
     }
     private String accessLeader(String url) {
+    	System.out.println("SHUZHI: "+ url);
     	try {
     		String uri="leader";
-    		url="http://"+url+"/"+uri;
+    		url="http://"+url+":801"+"/"+uri;
     		System.out.println(url);
     		
     		HttpGet httpGet = new HttpGet(url);
