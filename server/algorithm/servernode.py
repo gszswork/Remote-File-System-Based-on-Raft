@@ -18,6 +18,7 @@ class ServerNode(object):
         self.addr = conf['addr']
         self.peers = conf['peers']
 
+        self.all_ips = {'1': '18.119.17.134', '2': '18.223.255.142', '3': '18.117.80.212'}
         # initialize the socket for connection.
         # ss is used to receive
         self.ss = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -64,10 +65,7 @@ class ServerNode(object):
                 except Exception as e:
                     data, addr = None, None
                 if data is not None and data['type'] == 'request_leader':
-                    if self.role == 'leader':
-                        res_data = {'ip': self.addr}
-                    else:
-                        res_data = {'ip': self.peers[self.leader_id]}
+                    res_data = {'ip': self.all_ips[self.leader_id]}
                     self.send(res_data, addr)
                     continue
                 data = self.redirect(data, addr)
