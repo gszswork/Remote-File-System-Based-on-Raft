@@ -1,7 +1,7 @@
 # coding: utf-8
 
 import os, json, socket, time, random
-from .log import Log
+from log import Log
 # 4 actions after receive an message:
 # 1. general_process(data): all role will do this
 # 2. leader_process(data)
