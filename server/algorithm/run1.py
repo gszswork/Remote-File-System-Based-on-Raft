@@ -1,5 +1,4 @@
-from node import Node
-
+from servernode import ServerNode
 
 """
         self.id = conf['id']
@@ -13,5 +12,5 @@ if __name__ == "__main__":
     'peers': { '2':('172.31.18.154', 10001),  '3':('172.31.30.79', 10001)}
     }
 
-    node1 = Node(config)
-    node1.run()
+    node1 = ServerNode(config)
+    node1.initialize()
