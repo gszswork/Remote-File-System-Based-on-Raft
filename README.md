@@ -259,7 +259,8 @@ Details are given below.
     ```
 
 
-
+## Future Work
+Polish and develop the frontend website or app. 
 
 <!-- LICENSE -->
 ## License
