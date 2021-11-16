@@ -37,7 +37,7 @@
 
 ## Backend API
 
-You can connect to our file system by the java program, or just with the following command. 
+You can connect to our file system by the [java_program](https://github.com/gszswork/Remote-File-System-Flask-Raft/blob/master/client/src/client/client.java), or just with the following command. 
 
 The API is available online. Use it by sending your request to **http://18.119.17.134:801/{URI}** (One of the AWS nodes)
 
