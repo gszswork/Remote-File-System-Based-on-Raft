@@ -33,10 +33,10 @@
   </p>
 </p>
 
+# Due to the AWS free instances limitations, I have terminated three free instances. Contact me in advance to if you want to test the functions please.
 
 
 ## Backend API
-Due to the AWS free instances limitations, I have terminated three free instances. Contact me in advance to if you want to test the functions please.
 
 You can connect to our file system by the [java_program](https://github.com/gszswork/Remote-File-System-Flask-Raft/blob/master/client/src/client/client.java), or just with the following command. 
 
